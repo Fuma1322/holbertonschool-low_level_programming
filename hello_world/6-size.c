@@ -1,9 +1,8 @@
 #include <stdio.h>
 /**
-* main - A script that prints various data types
+* main - A program that prints the size of various computer types
 * Return 0 (Success)
 */
-
 int main(void)
 {
 char a;
@@ -15,7 +14,7 @@ float f;
 printf("Size of char: %lu byte(s)\n", (unsigned long)sizeof(a));
 printf("Size of int: %lu byte(s)\n", (unsigned long)sizeof(b));
 printf("Size of long: %lu byte(s)\n", (unsigned long)sizeof(c));
-printf("Size of long long: %lu bytes\n", (unsigned long)sizeof(d));
-printf("Size of float: %zu bytes\n", (unsigned long)sizeof(f));
+printf("Size of long long: %lu byte(s)\n", (unsigned long)sizeof(d));
+printf("Size of float: %lu byte(s)\n", (unsigned long)sizeof(f));
 return (0);
 }
