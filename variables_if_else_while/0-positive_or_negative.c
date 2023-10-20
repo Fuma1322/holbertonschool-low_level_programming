@@ -12,7 +12,7 @@ int main(void)
 	srand(time(0)); 000000000000000000000000
 	n = rand() - RAND_MAX / 2;
 	/* your code goes there */
-		
+	
 if (n < 0)
 {
 printf("%d is %s\n", n, "negative");
