@@ -11,7 +11,7 @@ char uppercase = 'A';
 while (lowercase <= 'z' && uppercase <= 'Z')
 {
 putchar (lowercase);
-putchar (uppercase)
+putchar (uppercase);
 lowercase++;
 uppercase++;
 }
