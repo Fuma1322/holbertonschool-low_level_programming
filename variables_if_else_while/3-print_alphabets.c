@@ -22,3 +22,4 @@ uppercase++;
 putchar ('\n');
 
 return (0);
+}
