@@ -4,15 +4,17 @@
 CC = gcc
 
 # Source files and the name of the executable
-SRC_FILES = main.c school.c m.h
+SRC_FILES = main.c m.h school.c
 EXECUTABLE = school
 
-# Rule: Build the executable
-$(school): $(main.c school.c m.h)
-	$(gcc) $(main.c school.c m.h) -o $(school)
+# Rule: Build the executable (default target)
+all: $(school)
+
+$(school): $(main.c m.h school.c)
+	$(gcc) $(main.c m.h school.c) -o $(school)
 
 # Rule: Clean the project
 clean:
 	rm -f $(school)
 
-.PHONY: clean
+.PHONY: all clean
