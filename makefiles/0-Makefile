@@ -1,3 +1,18 @@
-all:
-  gcc main.c school.c -o school
-  ./school
+# Makefile for a simple C project
+
+# Compiler and compiler flags
+CC = gcc
+
+# Source files and the name of the executable
+SRC_FILES = main.c school.c m.h
+EXECUTABLE = school
+
+# Rule: Build the executable
+$(school): $(main.c school.c m.h)
+	$(gcc) $(main.c school.c m.h) -o $(school)
+
+# Rule: Clean the project
+clean:
+	rm -f $(school)
+
+.PHONY: clean
