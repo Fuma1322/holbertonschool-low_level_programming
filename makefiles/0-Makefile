@@ -1,9 +1,2 @@
-all: $(school)
-
-$(school): $(main.c school.c)
-</t>$(main.c school.c) -o $(school)
-
-clean:
-  rm -f $(school)
-
-.PHONY: all clean
+all:
+  gcc main.c school.c -o school
