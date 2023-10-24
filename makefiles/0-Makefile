@@ -1,7 +1,14 @@
-all: school
+SRC_FILES = main.c a.out m.h school.c
+CC = gcc
 
-school: main.c
-	gcc -o school main.c
+EXECUTABLE = school
+
+all: $(school)
+
+$(school): $(main.c a.out m.h school.c)
+	$(main.c a.out m.h school.c) -o $(school)
 
 clean:
-	rm -f school
+	rm -f $(school)
+
+.PHONY: all clean
