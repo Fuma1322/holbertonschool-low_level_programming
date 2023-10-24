@@ -1,9 +1,6 @@
-all: main.c school.c
-
-$(school): $(main.c school.c)
-	$(gcc) $(main.c school.c) -o $(school)
-
-clean:
-	rm -f $(school)
-
-.PHONY: all clean
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
