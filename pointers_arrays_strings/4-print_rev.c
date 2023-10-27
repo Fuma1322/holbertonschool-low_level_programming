@@ -12,6 +12,6 @@ int start = 0;
 while (s[start])
 start++;
 while (start--)
-_putchar(s[start])
-_putchar('\n')
+_putchar(s[start]);
+_putchar('\n');
 }
