@@ -1,21 +1,23 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
-* _strspn - gets the length of a prefix substring
-* @s: pointer to a char, string that will be checked
-* @accept: pointer to the substring we check for
-* Return: unsigned int, length of a prefix substring
+* _strpbrk - locates a character in a string
+* @s: pointer where we search for charachter
+* @accept: character we search for
+* Return: NULL if character is not found, return pointer
 */
 
-unsigned int _strspn(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
-unsigned int count = 0, x, i;
+char *s1 = s - 1;
+int i;
 
-for (x = 0; s[x] != '\0' && x == count; x++)
-for (i = 0; accept[i] != '\0'; i++)
-if (s[x] == accept[i])
-count++;
+do {
+s1++;
+for (i = 0; *(accept + i) != '\0'; i++)
+if (*s1 == *(accept + i))
+return (s1);
+} while (*s1 != '\0');
 
-return (count);
+return (0);
 }
