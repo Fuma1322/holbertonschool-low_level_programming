@@ -10,17 +10,8 @@
 
 int _isupper(int c)
 {
-char character = 'A';
-int result = _isupper(character);
-
-if (result)
-{
-printf("%c is an uppercase character.\n", character);
-}
+if(c >= 'A' && c<= 'Z')
+return (1);
 else
-{
-printf("%c is not an uppercase character.\n", character);
-}
-
 return (0);
 }
