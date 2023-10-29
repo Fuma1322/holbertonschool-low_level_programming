@@ -15,5 +15,5 @@ else
 printf("%c is not an uppercase character.\n", character);
 }
 
-return 0;
+return (0);
 }
