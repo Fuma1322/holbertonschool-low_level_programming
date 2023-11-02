@@ -3,6 +3,10 @@
 /**
 * main - Entry point of the program.
 * It prints the name of the program, including the path.
+*@argc - represents the number of command-line arguments.
+*@argv -  is an array of strings.
+*
+* Return: 0 (success)
 */
 
 int main(int argc, char *argv[])
