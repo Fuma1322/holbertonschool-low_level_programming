@@ -1,10 +1,9 @@
-#include <stdio.h>
+#include "stdio.h"
 
 /**
 * main - Entry point of the program.
-* It prints the name of the program, including the path.
-*@argc - represents the number of command-line arguments.
-*@argv -  is an array of strings.
+* @argc: size of argv
+* @argv: name of app + any other arguments.
 *
 * Return: 0 (success)
 */
