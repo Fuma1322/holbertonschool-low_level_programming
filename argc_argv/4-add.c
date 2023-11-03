@@ -11,31 +11,29 @@
 
 int main(int argc, char *argv[])
 {
+int sum = 0;
+int i;
+
 if (argc == 1)
 {
-/* No numbers provided, print 0 and return 0 */
 printf("0\n");
-return (0);
+return 0;
 }
 
-int sum = 0;
-
-for (int i = 1; i < argc; i++)
+for (i = 1; i < argc; i++)
 {
 int number = atoi(argv[i]);
 
 if (number <= 0)
 {
-/* Non-positive numbers are not allowed, print "Error" and return 1 */
-printf("Error\n")
-return (1);
+printf("Error\n");
+return 1;
 }
 
 sum += number;
 }
 
-/* Print the sum of positive numbers followed by a new line */
 printf("%d\n", sum);
 
-return (0);
+return 0;
 }
