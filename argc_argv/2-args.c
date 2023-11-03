@@ -5,9 +5,8 @@
 *@argc: count
 *@argv: string with arguments
 *
-* Return: 0 (success)
+* Return: Always 0
 */
-
 int main(int argc, char *argv[])
 {
 int i;
