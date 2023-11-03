@@ -14,7 +14,7 @@ if (argc != 3)
 {
 /* Check if the program received exactly two arguments*/
 printf("Error\n");
-return 1;
+return (1);
 }
 /* Convert the command-line arguments to integers */
 int num1 = atoi(argv[1]);
