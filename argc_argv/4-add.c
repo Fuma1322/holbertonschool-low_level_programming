@@ -11,14 +11,15 @@
 
 int main(int argc, char *argv[])
 {
+int sum = 0;
+int i; /* Declare 'i' at the beginning of the function */
+  
 if (argc == 1)
 {
 /* No numbers provided, print 0 and return 0 */
 printf("0\n");
 return (0);
 }
-
-int sum = 0;
 
 for (int i = 1; i < argc; i++)
 {
