@@ -10,6 +10,7 @@
 
 int main(int argc, char *argv[])
 {
+int num1, num2, result;
 if (argc != 3)
 {
 /* Check if the program received exactly two arguments*/
@@ -18,7 +19,7 @@ return (1);
 }
 /* Convert the command-line arguments to integers */
 int num1 = atoi(argv[1]);
-int num2 = atoi(argv[2);
+int num2 = atoi(argv[2]);
 
 /* Multiply the two numbers */
 int result = num1 * num2;
