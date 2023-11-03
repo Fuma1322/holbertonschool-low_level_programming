@@ -16,14 +16,14 @@ if (argc != 3)
 {
 /* Check if the program received exactly two arguments */
 printf("Error\n");
-return 1;
+return (1);
 }
 
 num1 = atoi(argv[1]);
 num2 = atoi(argv[2]);
-result = num1 * num2;
+result = num1 *num2;
 /* Print the result followed by a new line */
 printf("%d\n", result);
 
-return 0;
+return (0);
 }
