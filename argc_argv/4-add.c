@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
-* main - adds positive numbers. 
+* main - adds positive numbers.
 *@argc: counts
 *@argv: string array for the arguments
 *
@@ -28,7 +28,7 @@ if (number <= 0)
 {
 /* Non-positive numbers are not allowed, print "Error" and return 1 */
 printf("Error\n")
-return 1;
+return (1);
 }
 
 sum += number;
