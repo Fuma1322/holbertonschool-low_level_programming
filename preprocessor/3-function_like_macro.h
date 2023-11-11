@@ -7,6 +7,6 @@
 *       that computes the absolute value of a number x.
 */
 
-#define ABS(x) ((x) < 0 ? (-x) : (x))
+#define ABS(X) ((X) < 0 ? (-X) : (X))
 
 #endif
