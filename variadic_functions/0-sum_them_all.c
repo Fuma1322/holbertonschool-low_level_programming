@@ -16,7 +16,7 @@ if (n == 0) {
 return 0;
 }
 
-    // Dynamically allocate an array to store the parameters
+/** Dynamically allocate an array to store the parameters */
 int *args = (int *)malloc(n * sizeof(int));
 
 if (args == NULL) {
