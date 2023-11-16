@@ -29,7 +29,8 @@ va_list ap;
 va_start(ap, n);
 
 /** Store the parameters in the dynamically allocated array */
-for (unsigned int i = 0; i < n; ++i)
+unsigned int i;
+for (i = 0; i < n; ++i)
 {
 args[i] = va_arg(ap, int);
 }
