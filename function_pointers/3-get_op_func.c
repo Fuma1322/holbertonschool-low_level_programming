@@ -1,5 +1,5 @@
 /*
-* File: 3-op_functions.
+* File: 3-op_functions.c
 */
 
 #include "3-calc.h"
