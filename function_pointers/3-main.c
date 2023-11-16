@@ -1,6 +1,6 @@
 /*
- * File: 3-main.c
- */
+* File: 3-main.c
+*/
 
 #include "3-calc.h"
 #include <stdlib.h>
