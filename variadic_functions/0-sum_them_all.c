@@ -1,5 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
 * sum_them_all - Returns the sum of all its paramters.
@@ -26,20 +27,21 @@ exit(EXIT_FAILURE);
 va_list ap;
 va_start(ap, n);
 
-    // Store the parameters in the dynamically allocated array
-for (unsigned int i = 0; i < n; ++i) {
+/** Store the parameters in the dynamically allocated array */
+for (unsigned int i = 0; i < n; ++i)
+{
 args[i] = va_arg(ap, int);
 }
 
 va_end(ap);
 
-    // Sum up the values in the array
+    /** Sum up the values in the array */
 int sum = 0;
 for (unsigned int i = 0; i < n; ++i) {
 sum += args[i];
 }
 
-    // Free the dynamically allocated memory
+/* Free the dynamically allocated memory */
 free(args);
 
 return sum;
