@@ -5,7 +5,7 @@
 *@head: pointer to head of list.
 *@index: index of the node, starting from 0.
 *
-* Return: address of the nth node, or NULL if it does not exist.  
+* Return: address of the nth node, or NULL if it does not exist.
 */
 
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
