@@ -50,7 +50,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 if (h == NULL)
 return (NULL);
 
-mktemp: *h;
+dlistint_t *temp: *h; /*Move declaration to the beginning of the block */
 unsigned int i = 0;
 
 if (idx == 0)
