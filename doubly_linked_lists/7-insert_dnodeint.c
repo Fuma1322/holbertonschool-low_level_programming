@@ -59,7 +59,7 @@ dlistint_t *new_node = create_dnode(n);
 return (insert_dnode_at_beginning(h, new_node));
 }
 
-dlistint_t *temp;
+dlistint_t *temp; *h;
 unsigned int i = 0;
   
 while (temp != NULL && i < idx - 1)
