@@ -1,86 +1,65 @@
 #include "lists.h"
 
-/**
-* create_dnode - creates a new doubly linked list node.
-* @n: integer to be stored in the lebo node.
-* Return: Address of the lebo node, or NULL if it failed.
-*/
-dlistint_t *create_dnode(int n)
-{
-dlistint_t *lebo_node = malloc(sizeof(dlistint_t));
-if (lebo_node == NULL)
-return (NULL);
 
-lebo_node->n = n;
-lebo_node->prev = NULL;
-lebo_node->next = NULL;
-
-return (lebo_node);
-}
+static dlistint_t *new_node(int n);
 
 /**
-* insert_dnode_at_beginning - inserts a lebo node at the beginning of the list.
-* @h: Pointer to the pointer of head of the list.
-* @lebo_node: Pointer to the lebo node.
-* Return: Address of the lebo node, or NULL if it failed.
-*/
-dlistint_t *insert_dnode_at_beginning(dlistint_t **h, dlistint_t *lebo_node)
-{
-if (lebo_node == NULL)
-return (NULL);
-
-lebo_node->next = *h;
-if (*h != NULL)
-(*h)->prev = lebo_node;
-
-*h = lebo_node;
-
-return (lebo_node);
-}
-
-/**
-* insert_dnodeint_at_index - inserts a lebo node at a given position.
-* @h: Pointer to the pointer of head of the list.
-* @idx: index where the lebo node should be added.
-* @n: integer to be stored in the lebo node.
-* Return: Address of the lebo node, or NULL if it failed.
-*/
-
+ * insert_dnodeint_at_index - inserts a node at a choosen position.
+ * @h: pointer of a pointer to linked list
+ * @idx: position to add the new node
+ * @n: value to set the new node
+ *
+ * Return: a pointer to the add node else NULL
+ */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-if (h == NULL)
-return (NULL);
+dlistint_t *node, *new;
+size_t i = 0;
 
-dlistint_t *hot = *h;
-dlistint_t *lebo_node;
-unsigned int i;
-
-if (idx == 0)
+if (!(*h) && !idx)
+return (*h = new_node(n));
+else if (!idx)
+return (*h = add_dnodeint(h, n));
+node = *h;
+if (node->prev)
+while (node->prev)
+node = node->prev;
+else if (!node->next)
+while (node->prev)
+node = node->prev;
+while (++i < idx && node->next)
 {
-dlistint_t *lebo_node = create_dnode(n);
-return (insert_dnode_at_beginning(h, lebo_node));
+node = node->next;
+}
+if (i < idx)
+return (NULL);
+else if (node)
+{
+new = new_node(n);
+if (!new)
+return (NULL);
+if (node->next)
+node->next->prev = new;
+new->prev = node;
+new->next = node->next;
+node->next = new;
+}
+return (new);
 }
 
-for (i = 0; hot != NULL && i < idx - 1; i++)
+/**
+ * new_node - create a new node
+ * @n: value to set the new node
+ *
+ * Return: pointer to a new node
+ */
+static dlistint_t *new_node(int n)
 {
-hot = hot->next;
-}
-
-if (hot == NULL)
+dlistint_t *node;
+node = malloc(sizeof(dlistint_t));
+if (!node)
 return (NULL);
-
-
-lebo_node = create_dnode(n);
-if (lebo_node == NULL)
-return (NULL);
-
-lebo_node->prev = hot;
-lebo_node->next = hot->next;
-
-if (hot->next != NULL)
-hot->next->prev = lebo_node;
-
-hot->next = lebo_node;
-
-return (lebo_node);
+node->n = n;
+node->next = node->prev = NULL;
+return (node);
 }
