@@ -52,6 +52,7 @@ if (h == NULL)
 return (NULL);
 
 dlistint_t *hot = *h;
+dlistint_t *lebo_node;
 unsigned int i;
 
 if (idx == 0)
@@ -68,8 +69,8 @@ hot = hot->next;
 if (hot == NULL)
 return (NULL);
 
-{
-dlistint_t *lebo_node = create_dnode(n);
+
+lebo_node = create_dnode(n);
 if (lebo_node == NULL)
 return (NULL);
 
@@ -82,5 +83,4 @@ hot->next->prev = lebo_node;
 hot->next = lebo_node;
 
 return (lebo_node);
-}
 }
