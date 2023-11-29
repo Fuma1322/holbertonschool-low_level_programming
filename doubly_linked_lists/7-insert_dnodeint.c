@@ -63,7 +63,7 @@ return (NULL);
 
 dlistint_t *new_node = create_dnode(n);
 if (new_node == NULL)
-return NULL;
+return (NULL);
 
 new_node->prev = temp;
 new_node->next = temp->next;
@@ -73,5 +73,5 @@ temp->next->prev = new_node;
 
 temp->next = new_node;
 
-return new_node;
+return (new_node);
 }
