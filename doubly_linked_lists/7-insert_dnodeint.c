@@ -53,7 +53,16 @@ return (NULL);
 dlistint_t *temp = *h;
 unsigned int i = 0;
 
-while (temp != NULL && i < idx - 1) {
+if (idx == 0)
+{
+dlistint_t *new_node = create_dnode(n);
+return insert_dnode_at_beginning(h, new_node);
+}
+
+temp = *h;
+  
+while (temp != NULL && i < idx - 1)
+{
 temp = temp->next;
 i++;
 }
