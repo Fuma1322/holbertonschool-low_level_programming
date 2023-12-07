@@ -32,21 +32,23 @@ void copy_file(int fd_from, int fd_to)
         write_bytes = write(fd_to, buffer, read_bytes);
         if (write_bytes != read_bytes) {
             print_error("Can't write to", "destination file", 99);
-        }
-    }
+}
+}
 
-    if (read_bytes == -1) {
-        print_error("Can't read from", "destination file", 98);
-    }
+if (read_bytes == -1)
+{
+print_error("Can't read from", "test_folder/textfile_0", 98);
+}
 }
 
 int main(int argc, char *argv[])
 {
-    int fd_from, fd_to;
+int fd_from, fd_to;
 
-    if (argc != 3) {
-        dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-        exit(97);
+if (argc != 3)
+{
+dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+exit(97);
     }
 
     fd_from = open_file(argv[1], O_RDONLY, 0);
