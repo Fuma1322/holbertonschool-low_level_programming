@@ -16,7 +16,8 @@ exit(exit_code);
 int open_file(char *filename, int flags, mode_t mode)
 {
 int fd = open(filename, flags, mode);
-if (fd == -1) {
+if (fd == -1)
+{
 print_error("Can't write to", filename, 99);
 }
 return (fd);
@@ -57,7 +58,7 @@ fd_to = open_file(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 copy_file(fd_from, fd_to);
 
-if (close(fd_from) == -1 || close(fd_to) == -1) 
+if (close(fd_from) == -1 || close(fd_to) == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't close fd descriptors\n");
 exit(100);
