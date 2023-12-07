@@ -39,7 +39,7 @@ print_error("Can't write to", "destination file", 99);
 
 if (read_bytes == -1)
 {
-print_error("Can't read from", "source file", 98);
+print_error("Can't read from", argv[1], 98);
 }
 }
 
