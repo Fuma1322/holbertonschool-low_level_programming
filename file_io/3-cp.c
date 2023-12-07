@@ -36,7 +36,7 @@ void copy_file(int fd_from, int fd_to)
     }
 
     if (read_bytes == -1) {
-        print_error("Can't read from", "source file", 98);
+        print_error("Can't read from", "destination file", 98);
     }
 }
 
