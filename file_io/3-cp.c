@@ -7,24 +7,28 @@
 
 #define BUFFER_SIZE 1024
 
-void print_error(char *message, char *filename, int exit_code) {
+void print_error(char *message, char *filename, int exit_code)
+{
     dprintf(STDERR_FILENO, "Error: %s %s\n", message, filename);
     exit(exit_code);
 }
 
-int open_file(char *filename, int flags, mode_t mode) {
+int open_file(char *filename, int flags, mode_t mode)
+{
     int fd = open(filename, flags, mode);
     if (fd == -1) {
-        print_error("Can't open", filename, 98);
+        print_error("Can't write", filename, 98);
     }
-    return fd;
+    return (fd);
 }
 
-void copy_file(int fd_from, int fd_to) {
+void copy_file(int fd_from, int fd_to)
+{
     char buffer[BUFFER_SIZE];
     ssize_t read_bytes, write_bytes;
 
-    while ((read_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0) {
+    while ((read_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+    {
         write_bytes = write(fd_to, buffer, read_bytes);
         if (write_bytes != read_bytes) {
             print_error("Can't write to", "destination file", 99);
@@ -36,7 +40,8 @@ void copy_file(int fd_from, int fd_to) {
     }
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     int fd_from, fd_to;
 
     if (argc != 3) {
@@ -49,7 +54,8 @@ int main(int argc, char *argv[]) {
 
     copy_file(fd_from, fd_to);
 
-    if (close(fd_from) == -1 || close(fd_to) == -1) {
+    if (close(fd_from) == -1 || close(fd_to) == -1) 
+    {
         dprintf(STDERR_FILENO, "Error: Can't close file descriptors\n");
         exit(100);
     }
