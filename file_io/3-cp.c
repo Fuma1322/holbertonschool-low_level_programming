@@ -18,7 +18,7 @@ int open_file(char *filename, int flags, mode_t mode)
 int fd = open(filename, flags, mode);
 if (fd == -1)
 {
-print_error("Can't write to", filename, 99);
+print_error("Can't open", filename, 98);
 }
 return (fd);
 }
