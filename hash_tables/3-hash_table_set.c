@@ -1,64 +1,60 @@
 #include "hash_tables.h"
-#include <string.h>
-#include <stdlib.h>
 
 /**
-* hash_table_set - Adds an element to the hash table
-* @ht: The hash table
-* @key: The key
-* @value: The value associated with the key
-*
-* Return: 1 if succeeded, 0 otherwise
-*/
+ * add_n_hash - adds node at beginning
+ *
+ * @head: head of list
+ * @key: key of the hash tble
+ * @value: value stored
+ * Return: head of the hash
+ */
+
+hash_node_t *add_n_hash(hash_node_t **head, const char *key, const char *value)
+{
+hash_node_t *tmp;
+
+tmp = *head;
+
+while (tmp != NULL)
+{
+if (strcmp(key, tmp->key) == 0)
+{
+free(tmp->value);
+tmp->value = strdup(value);
+return (*head);
+}
+tmp = tmp->next;
+}
+
+tmp = malloc(sizeof(hash_node_t));
+if (tmp == NULL)
+return (NULL);
+
+tmp->key = strdup(key);
+tmp->value = strdup(value);
+tmp->next = *head;
+*head = tmp;
+return (*head);
+}
+
+/**
+ * hash_table_set - adds a hash to the table
+ *
+ * @ht: hash table
+ * @key: key
+ * @value: value to be stored
+ * Return: 1 if yes 0 if no
+ */
+
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-unsigned long int index;
-hash_node_t *new_node, *current;
-
-if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
-return 0;
-
-/* Get the index using the key_index function */
-index = key_index((unsigned char *)key, ht->size);
-
-/* Check if the key already exists, and update the value if it does */
-current = ht->array[index];
-while (current)
-{
-if (strcmp(current->key, key) == 0)
-{
-free(current->value); /* Free the existing value */
-current->value = strdup(value); /* Duplicate the new value */
-if (current->value == NULL)
-return 0; /* Memory allocation failure */
-return 1; /* Update successful */
-}
-current = current->next;
-}
-
-/* Create a new node */
-new_node = malloc(sizeof(hash_node_t));
-if (new_node == NULL)
-return 0; /* Memory allocation failure */
-
-new_node->key = strdup(key);
-if (new_node->key == NULL)
-{
-free(new_node);
-return 0; /* Memory allocation failure */
-}
-
-new_node->value = strdup(value);
-if (new_node->value == NULL)
-{
-free(new_node->key);
-free(new_node);
-return 0; /* Memory allocation failure */
-}
-
-/* Add the new node at the beginning of the list (collision resolution) */
-new_node->next = ht->array[index];
-ht->array[index] = new_node;
-
-return 1; /* Insertion successful */
+unsigned long int k_index;
+if (ht == NULL)
+return (0);
+if (key == NULL || *key == '\0')
+return (0);
+k_index = key_index((unsigned char *)key, ht->size);
+if (add_n_hash(&(ht->array[k_index]), key, value) == NULL)
+return (0);
+return (1);
 }
